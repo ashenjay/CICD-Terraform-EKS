@@ -27,7 +27,7 @@ module "vpc" {
 }
 
 #eks
- module "eks" {
+module "eks" {
   source                         = "terraform-aws-modules/eks/aws"
   cluster_name                   = "my-eks-cluster"
   cluster_version                = "1.29"
@@ -50,9 +50,9 @@ module "vpc" {
 }
 
 data "aws_eks_cluster" "cluster" {
-  name = module.eks.cluster_id
+  name = module.eks.cluster_name
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  name = module.eks.cluster_id
+  name = module.eks.cluster_name
 }
